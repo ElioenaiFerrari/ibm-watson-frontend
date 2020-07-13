@@ -1,16 +1,13 @@
 import client from "../config/client";
 
 const chatRepository = {
-  async sendMessage(text) {
+  async sendMessage(params) {
     try {
-      const response = await client.post("/chat", null, {
-        data: {
-          text,
-        },
-      });
+      const response = await client.post("/chat", params);
 
-      return response.data;
+      return response;
     } catch (error) {
+      console.log(error);
       return error;
     }
   },

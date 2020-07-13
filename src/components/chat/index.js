@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 
-function Chat({ messages, onKeyDown, message, onChangeMessage }) {
+function ChatText({ messages, onKeyDown, message, onChangeMessage }) {
   const style = useCallback(({ isMe }) => {
     if (isMe) {
       return { backgroundColor: "#7159c1" };
@@ -9,23 +9,23 @@ function Chat({ messages, onKeyDown, message, onChangeMessage }) {
   }, []);
 
   return (
-    <div class="card">
-      <div class="card-header">Chat</div>
-      <div class="card-body list-group">
+    <div className="card">
+      <div className="card-header">ChatText</div>
+      <div className="card-body list-group">
         {messages.map((message) => (
-          <div class="card mb-4" style={style(message)}>
-            <div class="card-body">
-              <h4 class="card-title white--text">{message.text}</h4>
+          <div key={message.text} className="card mb-4" style={style(message)}>
+            <div className="card-body">
+              <h4 className="card-title white--text">{message.text}</h4>
             </div>
           </div>
         ))}
       </div>
-      <div class="card-footer text-muted">
-        <div class="form-group">
+      <div className="card-footer text-muted">
+        <div className="form-group">
           <label for="">Digite sua mensagem aqui</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             aria-describedby="helpId"
             value={message}
             onKeyDown={onKeyDown}
@@ -37,4 +37,4 @@ function Chat({ messages, onKeyDown, message, onChangeMessage }) {
   );
 }
 
-export default memo(Chat);
+export default memo(ChatText);

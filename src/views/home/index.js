@@ -10,10 +10,11 @@ function Home() {
 
   const [message, SetMessage] = useState("");
 
-  const dispatchMessage = (isMe) => {
+  const dispatchMessage = (message, isMe) => {
+    console.log(message, isMe);
     dispatch(
       saveMessage({
-        text: message,
+        ...message,
         isMe,
       })
     );
@@ -21,14 +22,23 @@ function Home() {
   };
 
   const requestWatson = async () => {
-    const response = await chatRepository.sendMessage(message);
+    try {
+      const params = {
+        text: message,
+        context: {},
+      };
 
-    console.log(response);
+      const response = await chatRepository.sendMessage(params);
+
+      dispatchMessage(response.data, false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onKeyDown = ({ key }) => {
     if (key === "Enter") {
-      dispatchMessage(true);
+      dispatchMessage({ text: message }, true);
       requestWatson();
     }
   };
