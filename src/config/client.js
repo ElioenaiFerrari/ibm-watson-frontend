@@ -1,13 +1,12 @@
 import axios from "axios";
 import serverConfig from "./repository";
 
-const { API_HOST, API_PORT } = serverConfig;
+// const { API_HOST, API_PORT } = serverConfig;
 
 const client = axios.create({
-  baseURL: `http://${API_HOST}:${API_PORT}`,
+  // baseURL: `http://${API_HOST}:${API_PORT}`,
+  baseURL: "http://localhost:4002",
 });
-
-console.log(API_PORT);
 
 client.defaults.headers = {
   "Content-Type": "application/json",
