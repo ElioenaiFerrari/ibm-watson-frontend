@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import "./styles.css";
 
 function Options({ options, onClick }) {
   return (
@@ -8,7 +7,7 @@ function Options({ options, onClick }) {
         <button
           onClick={onClick}
           type="button"
-          class="option list-group-item list-group-item-action active"
+          class="list-group-item list-group-item-action outline mx-2"
           key={option.label}
         >
           {option.label}

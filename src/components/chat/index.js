@@ -4,9 +4,15 @@ import { Options } from "..";
 function ChatText({ messages, onKeyDown, message, onChangeMessage }) {
   const style = useCallback(({ isMe }) => {
     if (isMe) {
-      return { backgroundColor: "#7159c1" };
+      return {
+        backgroundColor: "#7159c1",
+        color: "white",
+      };
     }
-    return { backgroundColor: "lightblue" };
+    return {
+      backgroundColor: "lightblue",
+      color: "white",
+    };
   }, []);
 
   return (
