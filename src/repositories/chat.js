@@ -5,7 +5,7 @@ const chatRepository = {
     try {
       const response = await client.post("/chat", params);
 
-      return response;
+      return response.data;
     } catch (error) {
       console.log(error);
       return error;

@@ -7,11 +7,11 @@ import { chatRepository } from "../../repositories";
 function Home() {
   const dispatch = useDispatch();
   const chat = useSelector((state) => state.chat);
-
   const [message, SetMessage] = useState("");
 
   const dispatchMessage = (message, isMe) => {
-    console.log(message, isMe);
+    console.log(message);
+
     dispatch(
       saveMessage({
         ...message,
@@ -25,12 +25,11 @@ function Home() {
     try {
       const params = {
         text: message,
-        context: {},
       };
 
-      const response = await chatRepository.sendMessage(params);
+      const data = await chatRepository.sendMessage(params);
 
-      dispatchMessage(response.data, false);
+      dispatchMessage(data[0], false);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +37,12 @@ function Home() {
 
   const onKeyDown = ({ key }) => {
     if (key === "Enter") {
-      dispatchMessage({ text: message }, true);
+      const data = {
+        text: message,
+        response_type: "text",
+      };
+
+      dispatchMessage(data, true);
       requestWatson();
     }
   };
