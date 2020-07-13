@@ -1,4 +1,5 @@
 import Chat from "./chat";
-import Options from "./options";
+import Options from "./chat/options";
+import Text from "./chat/text";
 
-export { Chat, Options };
+export { Chat, Options, Text };
