@@ -1,8 +1,10 @@
 import axios from "axios";
-// import config from "./repository";
+import config from "./repository";
+
+const { API_HOST, API_PORT } = config;
 
 const client = axios.create({
-  baseURL: "http://localhost:4001",
+  baseURL: `http://${API_HOST}: ${API_PORT}`,
 });
 
 client.defaults.headers = {

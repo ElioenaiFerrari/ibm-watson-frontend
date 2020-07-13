@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from "react";
 import { Options } from "..";
 
-function ChatText({ messages, onKeyDown, message, onChangeMessage }) {
+function Chat({ messages, onKeyDown, message, onChangeMessage }) {
   const style = useCallback(({ isMe }) => {
     if (isMe) {
       return {
@@ -21,7 +21,7 @@ function ChatText({ messages, onKeyDown, message, onChangeMessage }) {
 
   return (
     <div className="card">
-      <div className="card-header">ChatText</div>
+      <div className="card-header">Chat</div>
       <div className="card-body list-group p-4">
         {messages.map((message) =>
           message.text && message.response_type === "text" ? (
@@ -56,4 +56,4 @@ function ChatText({ messages, onKeyDown, message, onChangeMessage }) {
   );
 }
 
-export default memo(ChatText);
+export default memo(Chat);
