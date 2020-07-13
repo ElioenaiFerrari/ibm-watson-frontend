@@ -41,7 +41,7 @@ function Chat({ messages, onKeyDown, message, onChangeMessage }) {
       </div>
       <div className="card-footer text-muted">
         <div className="form-group">
-          <label for="">Digite sua mensagem aqui</label>
+          <label htmlFor="">Digite sua mensagem aqui</label>
           <input
             type="text"
             className="form-control"
