@@ -5,20 +5,24 @@ function ChatText({ messages, onKeyDown, message, onChangeMessage }) {
   const style = useCallback(({ isMe }) => {
     if (isMe) {
       return {
+        width: "200px",
         backgroundColor: "#7159c1",
         color: "white",
+        float: "left",
       };
     }
     return {
+      width: "200px",
       backgroundColor: "lightblue",
       color: "white",
+      float: "right",
     };
   }, []);
 
   return (
     <div className="card">
       <div className="card-header">ChatText</div>
-      <div className="card-body list-group">
+      <div className="card-body list-group p-4">
         {messages.map((message) =>
           message.text && message.response_type === "text" ? (
             <div
