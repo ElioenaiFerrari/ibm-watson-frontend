@@ -15,8 +15,16 @@ function Chat({ messages, onKeyDown, message, onChangeMessage }) {
   return (
     <div className="card">
       <div className="card-header">Chat</div>
-      <div className="card-body list-group p-4">
-        {messages.map((message) => renderComponent(message))}
+      <div className="card-body d-flex flex-column list-group p-4">
+        {messages.map((message) => (
+          <div
+            className={
+              message.isMe ? "d-flex flex-row" : "d-flex flex-row-reverse"
+            }
+          >
+            {renderComponent(message)}
+          </div>
+        ))}
       </div>
       <div className="card-footer text-muted">
         <div className="form-group">
